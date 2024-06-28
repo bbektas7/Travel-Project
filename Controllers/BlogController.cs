@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TravelTripProject.Models;
 using TravelTripProject.Models.Classes;
 namespace TravelTripProject.Controllers
 {
@@ -24,6 +25,20 @@ namespace TravelTripProject.Controllers
             bc.Value1 = c.Blogs.Where(x => x.Id == id).ToList();
             bc.Value2 = c.Commentss.Where(x => x.Blogid == id).ToList();
             return View(bc);
+        }
+        [HttpGet]
+        public PartialViewResult GetComment(int id)
+        {
+            ViewBag.value = id;
+            return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult GetComment(Comments y)
+        {
+            c.Commentss.Add(y);
+            c.SaveChanges();
+            return PartialView();
         }
     }
 }
