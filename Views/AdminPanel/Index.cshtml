@@ -18,11 +18,11 @@
     @foreach (var x in Model)
     {
      <tr>
-         <th>@x.Id</th>
-         <th>@x.Title</th>
-         <th><a href="/AdminPanel/DeleteBlog/@x.Id" class="btn btn-danger">Delete</a></th>
-         <th><a href="/AdminPanel/BringBlog/@x.Id" class="btn btn-warning">Update</a></th>
-         <th><a href="/Blog/BlogDetail/@x.Id" class="btn btn-default">Details</a></th>
+         <td>@x.Id</td>
+         <td>@x.Title</td>
+         <td><a href="/AdminPanel/DeleteBlog/@x.Id" class="btn btn-danger">Delete</a></td>
+         <td><a href="/AdminPanel/BringBlog/@x.Id" class="btn btn-warning">Update</a></td>
+         <td><a href="/Blog/BlogDetail/@x.Id" class="btn btn-default">Details</a></td>
 
      </tr>
      }

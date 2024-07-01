@@ -50,5 +50,31 @@ namespace TravelTripProject.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult CommentList()
+        {
+            var comments = c.Commentss.ToList();
+            return View(comments);
+        }
+        public ActionResult DeleteComment(int id)
+        {
+            var b = c.Commentss.Find(id);
+            c.Commentss.Remove(b);
+            c.SaveChanges();
+            return RedirectToAction("CommentList");
+        }
+        public ActionResult BringComment(int id)
+        {
+            var cm = c.Blogs.Find(id);
+            return View("BringComment", cm);
+        }
+        public ActionResult UpdateComment(Comments y)
+        {
+            var cmt = c.Commentss.Find(y.Id);
+            cmt.User = y.User;
+            cmt.Email = y.Email;
+            cmt.comment = y.comment ;
+            c.SaveChanges();
+            return RedirectToAction("CommentList");
+        }
     }
 }
